@@ -1,0 +1,5 @@
+require 'i18n-validator'
+
+I18n::Validator::missing_locales(Dir[File.join(".", "config", "locales", "*")]).each do |key, missing_locales|
+  puts "- #{key} is missing in locale#{missing_locales.length == 1 ? "" : "s"} #{missing_locales.join(", ").gsub(/\, ([^\,]*)$/, " and \\1")}"
+end
